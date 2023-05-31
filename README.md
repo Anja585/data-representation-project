@@ -6,4 +6,5 @@
 
 # References
 1. European Central Bank. (2023, January 2). Download eligible assets datasets. https://www.ecb.europa.eu/paym/coll/assets/html/list-MID.en.html
-2. 
+2. Great Learning Team. (2022, October 21). Everything you need to know about Flask for beginners. - Great Learning. Great Learning Blog: Free Resources What Matters to Shape Your Career! https://www.mygreatlearning.com/blog/everything-you-need-to-know-about-flask-for-beginners/
+3. Welcome to Flask — Flask Documentation (2.3.x). (n.d.). https://flask.palletsprojects.com/en/2.3.x/
