@@ -1,7 +1,7 @@
 # Module: Data representation
 # Author: Anja Antolkovic
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, abort
 
 
 
@@ -42,26 +42,48 @@ def get_isin_code(isin_code):
 # create isin
 @app.route('/isins', methods = ['POST'])
 def create_isin(): 
+    if not request.json: 
+          abort(400)
     new_isin = {
-          'isin_code' : 'xxx', 
-          'issuance_date' : 'ccc',
-          'maturity_date' : 'ttt',
-          'issuer_name' : 'eee', 
-          'coupon_rate' : 0,
-          'denomination' : 'EUR'
+          "isin_code" : request.json["isin_code"], 
+          "issuance_date" : request.json["issuance_date"],
+          "maturity_date" : request.json["maturity_date"],
+          "issuer_name" : request.json["issuer_name"], 
+          "coupon_rate" : request.json["coupon_rate"],
+          "denomination" : request.json["denomination"]
            }
     isins.append(new_isin)
     return jsonify(new_isin)
 
 # update isin
 @app.route('/isins/<isin_code>', methods = ['PUT'])
-def update_isin(isin_code): 
-    return 'served by update_isin()' + ' ' + str(isin_code)
+def update_isin(isin_code):
+    found_isins = list(filter(lambda t : t['isin_code'] == isin_code, isins))
+    if len(found_isins) == 0:
+          return jsonify({}), 404
+    current_isin = found_isins[0]
+    if "isin_code" in request.json:
+          current_isin["isin_code"] = request.json["isin_code"]
+    if "issuance_date" in request.json:
+          current_isin["issuance_date"] = request.json["issuance_date"]
+    if "maturity_date" in request.json:
+          current_isin["maturity_date"] = request.json["maturity_date"]
+    if "issuer_name" in request.json:
+          current_isin["issuer_name"] = request.json["issuer_name"]      
+    if "coupon_rate" in request.json:
+          current_isin["coupon_rate"] = request.json["coupon_rate"]      
+    if "denomination" in request.json:
+          current_isin["denomination"] = request.json["denomination"]      
+    return jsonify(current_isin)
 
 # delete isin
 @app.route('/isins/isin_code', methods = ['DELETE'])
 def delete_isin(isin_code): 
-    return 'served by delete_isin()' + ' ' + str(isin_code)
+    found_isins = list(filter(lambda t : t['isin_code'] == isin_code, isins))
+    if len(found_isins) == 0:
+          return jsonify({}), 404
+    isins.remove(found_isins[0])      
+    return jsonify("done": True)
 
 
 if __name__ == '__main__':
