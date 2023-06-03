@@ -83,7 +83,7 @@ def delete_isin(isin_code):
     if len(found_isins) == 0:
           return jsonify({}), 404
     isins.remove(found_isins[0])      
-    return jsonify("done": True)
+    return jsonify({"done": True})
 
 
 if __name__ == '__main__':
