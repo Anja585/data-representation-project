@@ -77,7 +77,7 @@ def update_isin(isin_code):
     return jsonify(current_isin)
 
 # delete isin
-@app.route('/isins/isin_code', methods = ['DELETE'])
+@app.route('/isins/<isin_code>', methods = ['DELETE'])
 def delete_isin(isin_code): 
     found_isins = list(filter(lambda t : t['isin_code'] == isin_code, isins))
     if len(found_isins) == 0:
