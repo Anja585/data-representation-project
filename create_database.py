@@ -8,7 +8,7 @@ db = mysql.connector.connect(
 
 cursor = db.cursor()
 
-cursor.execute('create database ea_assets')
+cursor.execute('create database collateral')
 
 db.close()
 
