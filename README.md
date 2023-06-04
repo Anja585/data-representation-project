@@ -10,3 +10,4 @@
 3. Welcome to Flask — Flask Documentation (2.3.x). (n.d.). https://flask.palletsprojects.com/en/2.3.x/
 4. Python filter() Function. (n.d.). https://www.w3schools.com/python/ref_func_filter.asp
 5. Python Lambda. (n.d.). https://www.w3schools.com/python/python_lambda.asp
+6. Engine Configuration — SQLAlchemy 2.0 Documentation. (n.d.). https://docs.sqlalchemy.org/en/20/core/engines.html
