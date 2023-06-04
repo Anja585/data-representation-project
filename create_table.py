@@ -12,7 +12,8 @@ sql = '''create table ea_assets(
         isin_code varchar(20), 
         issuance_date varchar(20), 
         maturity_date varchar(20), 
-        issuer_name varchar(100), coupon_rate int, 
+        issuer_name varchar(100), 
+        coupon_rate int, 
         denomination varchar(100), 
         primary key(isin_code));'''
 
