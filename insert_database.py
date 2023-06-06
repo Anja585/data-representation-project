@@ -11,5 +11,5 @@ df = df[['isin_code',
 
 engine = create_engine('mysql+pymysql://root:''@localhost/collateral?charset=utf8mb4')
 
-df.to_sql(name='ea_assets', con=engine, if_exists='replace')
+df.to_sql(name='ea_assets', con=engine, if_exists='replace', index=False)
 
