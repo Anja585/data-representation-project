@@ -1,4 +1,3 @@
-import mysql.connector
 from sqlalchemy import create_engine
 import pandas as pd
 
