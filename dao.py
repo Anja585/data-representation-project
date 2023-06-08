@@ -47,9 +47,10 @@ class isinDAO:
     # retrieves all isins
     def get_all(self):
         cursor = self.get_cursor()
-        sql = 'select * from ea_assets limit 1000'
+        sql = 'select * from ea_assets limit 10'
         cursor.execute(sql)
         result = cursor.fetchall()
+        print(type(result))
         self.close_all()
         return result
     
@@ -66,12 +67,12 @@ class isinDAO:
     # updates isin
     def update(self, values):
         cursor = self.get_cursor()
-        sql = '''update ea_assets set   isin_code = %s, 
-                                issuance_date = %s, 
-                                maturity_date = %s, 
-                                coupon_rate = %s, 
-                                denomination = %s;
-                                '''
+        sql = '''update ea_assets set isin_code = %s, 
+                                      issuance_date = %s, 
+                                      maturity_date = %s, 
+                                      coupon_rate = %s, 
+                                      denomination = %s;
+                                      '''
         cursor.execute(sql, values)
         self.connection.commit()
         self.close_all()
@@ -84,7 +85,8 @@ class isinDAO:
         self.connection.commit()
         self.close_all()
 
-isin_DAO = isinDAO()
+isinDAO = isinDAO()
+
 
 
 

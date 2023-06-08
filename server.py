@@ -1,40 +1,27 @@
 # Module: Data representation
 # Author: Anja Antolkovic
 
-from flask import Flask, jsonify, request, abort
 
+from flask import Flask, jsonify, request, abort
+from dao import isinDAO
 
 
 app = Flask(__name__, static_url_path='', static_folder='static_pages')
-
-
-isins = [{'isin_code' : 'XS1906456220', 
-          'issuance_date' : '09/11/2018',
-          'maturity_date' : '09/11/2061',
-          'issuer_name' : 'International Bank for Reconstruction and Development', 
-          'coupon_rate' : 0,
-          'denomination' : 'EUR'},
-          {'isin_code' : 'XS1833442426', 
-          'issuance_date' : '07/06/2018',
-          'maturity_date' : '06/06/2024',
-          'issuer_name' : 'FMO-Ned.Fin.-Maat.is v.Ontw.NV', 
-          'coupon_rate' : 0,
-          'denomination' : 'USD'}]
-
 
 @app.route('/')
 def hello(): 
     return 'hello'
 
 # get all
-@app.route('/isins')
-def get_all(): 
-    return jsonify(isins)
+@app.route('/isins', methods = ['GET'])
+def get_all_isins():
+    results = isinDAO.get_all()     
+    return jsonify(results)
 
 # get isin
-@app.route('/isins/<isin_code>')
-def get_isin_code(isin_code):
-    found_isins = list(filter(lambda t : t['isin_code'] == isin_code, isins))
+@app.route('/isins/<isin_code>', methods = ['GET'])
+def get_isin(isin_code):
+    found_isins = isinDAO.find_isin(isin_code)
     if len(found_isins) == 0:
         return jsonify({}), 204
     return jsonify(found_isins[0]) 
@@ -48,43 +35,47 @@ def create_isin():
           "isin_code" : request.json["isin_code"], 
           "issuance_date" : request.json["issuance_date"],
           "maturity_date" : request.json["maturity_date"],
-          "issuer_name" : request.json["issuer_name"], 
           "coupon_rate" : request.json["coupon_rate"],
           "denomination" : request.json["denomination"]
            }
-    isins.append(new_isin)
+    values = (new_isin['isin_code'], 
+              new_isin['issuance_date'],
+              new_isin['maturity_date'],
+              new_isin['coupon_rate'],
+              new_isin['denomination'])
+    isinDAO.create(values)
     return jsonify(new_isin)
 
 # update isin
 @app.route('/isins/<isin_code>', methods = ['PUT'])
 def update_isin(isin_code):
-    found_isins = list(filter(lambda t : t['isin_code'] == isin_code, isins))
-    if len(found_isins) == 0:
-          return jsonify({}), 404
-    current_isin = found_isins[0]
-    if "isin_code" in request.json:
-          current_isin["isin_code"] = request.json["isin_code"]
-    if "issuance_date" in request.json:
-          current_isin["issuance_date"] = request.json["issuance_date"]
+    found_isin = isinDAO.find_isin(isin_code)
+    if not found_isin:
+          abort(404)
+    if not request.json:
+         abort(404)
+    req_json = request.json
+    if "coupon_rate" in request.json and type(req_json['coupon_rate']) is not int:
+          abort(400)
+    if "issuance_date" in req_json:
+          found_isin["issuance_date"] = req_json["issuance_date"]
     if "maturity_date" in request.json:
-          current_isin["maturity_date"] = request.json["maturity_date"]
-    if "issuer_name" in request.json:
-          current_isin["issuer_name"] = request.json["issuer_name"]      
-    if "coupon_rate" in request.json:
-          current_isin["coupon_rate"] = request.json["coupon_rate"]      
+          found_isin["maturity_date"] = req_json["maturity_date"]
     if "denomination" in request.json:
-          current_isin["denomination"] = request.json["denomination"]      
-    return jsonify(current_isin)
+          found_isin["denomination"] = req_json["denomination"]      
+    values = (found_isin['isin_code'],
+              found_isin['issuance_date'],
+              found_isin['maturity_date'],
+              found_isin['coupon_rate'],
+              found_isin['denomination'])
+    isinDAO.update(values)
+    return jsonify(found_isin)
 
 # delete isin
 @app.route('/isins/<isin_code>', methods = ['DELETE'])
 def delete_isin(isin_code): 
-    found_isins = list(filter(lambda t : t['isin_code'] == isin_code, isins))
-    if len(found_isins) == 0:
-          return jsonify({}), 404
-    isins.remove(found_isins[0])      
+    isinDAO.delete(isin_code)
     return jsonify({"done": True})
-
 
 if __name__ == '__main__':
    app.run(debug=True)
