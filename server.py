@@ -6,7 +6,7 @@ from flask import Flask, jsonify, request, abort
 from dao import isinDAO
 
 
-app = Flask(__name__, static_url_path='', static_folder='static_pages')
+app = Flask(__name__, static_url_path='', static_folder='static')
 
 @app.route('/')
 def hello(): 

@@ -11,3 +11,4 @@
 4. Python filter() Function. (n.d.). https://www.w3schools.com/python/ref_func_filter.asp
 5. Python Lambda. (n.d.). https://www.w3schools.com/python/python_lambda.asp
 6. Engine Configuration — SQLAlchemy 2.0 Documentation. (n.d.). https://docs.sqlalchemy.org/en/20/core/engines.html
+7. Contributors, M. O. J. T. a. B. (n.d.). Bootstrap. https://getbootstrap.com/
