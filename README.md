@@ -12,3 +12,4 @@
 5. Python Lambda. (n.d.). https://www.w3schools.com/python/python_lambda.asp
 6. Engine Configuration — SQLAlchemy 2.0 Documentation. (n.d.). https://docs.sqlalchemy.org/en/20/core/engines.html
 7. Contributors, M. O. J. T. a. B. (n.d.). Bootstrap. https://getbootstrap.com/
+8. Sebhastian, N. (2021). JavaScript programmatically create an HTML button. Sebhastian. https://sebhastian.com/javascript-create-button/?utm_content=cmp-true
