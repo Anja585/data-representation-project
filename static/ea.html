@@ -8,12 +8,26 @@
 <body>
     <h4>Eligible assets</h4>
     <h6>Click the action to perform</h6>
-        <p><button onclick="select_all()">All isins</button></p>
-        <p><button onclick="select_one()">One isin</button></p>
-        <p><button onclick="create_one(all)">Create isin</button></p>
-        <p><button onclick="update_one(all)">Update isin</button></p>
-        <p><button onclick="delete_one(all)">Delete isin</button></p>  
-            
+        <p><button onclick="select_all()"">All isins</button></p>
+        <div id="output"></div>
+        <p><button onclick="select_one()">Isin code</button>
+        <input id="name" type="text" placeholder="isin code"></p>
+        <div id="output2">
+        <p><button onclick="create_one(all)">Create</button>
+        <input id="name" type="text" placeholder="isin code">
+        <input id="name" type="text" placeholder="issue date">
+        <input id="name" type="text" placeholder="maturity date">
+        <input id="name" type="text" placeholder="coupon rate">
+        <input id="name" type="text" placeholder="denomination"></p>
+        <p><button onclick="update_one(all)">Update</button>
+        <input id="name" type="text" placeholder="isin code">
+        <input id="name" type="text" placeholder="issue date">
+        <input id="name" type="text" placeholder="maturity date">
+        <input id="name" type="text" placeholder="coupon rate">
+        <input id="name" type="text" placeholder="denomination"></p>
+        <p><button onclick="delete_one(all)">Delete</button>
+        <input id="name" type="text" placeholder="isin code"></p>  
+                
     <script>
         function select_all(){
                 $.ajax({
@@ -22,8 +36,8 @@
                     "data":"",
                     "dataType":"JSON",
                     "success":function(result){
-                        console.log(result);
-                    },
+                        document.getElementById("output").innerHTML = result;
+                        },
                     "error":function(xhr,status,error){
                         console.log("status:"+status+" message:"+error);
                     }
