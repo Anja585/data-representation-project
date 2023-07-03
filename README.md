@@ -13,3 +13,4 @@
 6. Engine Configuration — SQLAlchemy 2.0 Documentation. (n.d.). https://docs.sqlalchemy.org/en/20/core/engines.html
 7. Contributors, M. O. J. T. a. B. (n.d.). Bootstrap. https://getbootstrap.com/
 8. Sebhastian, N. (2021). JavaScript programmatically create an HTML button. Sebhastian. https://sebhastian.com/javascript-create-button/?utm_content=cmp-true
+9. Get Form Input value to jQuery AJAX call URL variable. (n.d.). Stack Overflow. https://stackoverflow.com/questions/58597048/get-form-input-value-to-jquery-ajax-call-url-variable
