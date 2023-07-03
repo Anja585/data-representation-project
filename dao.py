@@ -81,11 +81,14 @@ class isinDAO:
     def delete(self, value):
         cursor = self.get_cursor()
         sql = "delete from ea_assets where isin_code = %s"
+        value = (value,)
         cursor.execute(sql, value)
         self.connection.commit()
         self.close_all()
 
 isinDAO = isinDAO()
+
+
 
 
 

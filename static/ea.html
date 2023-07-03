@@ -12,21 +12,21 @@
         <div id="output"></div>
         <p><button onclick="select_one()">Isin code</button>
         <input id="name" type="text" placeholder="isin code"></p>
-        <div id="output2">
-        <p><button onclick="create_one(all)">Create</button>
-        <input id="name" type="text" placeholder="isin code">
-        <input id="name" type="text" placeholder="issue date">
-        <input id="name" type="text" placeholder="maturity date">
-        <input id="name" type="text" placeholder="coupon rate">
-        <input id="name" type="text" placeholder="denomination"></p>
+        <div id="output2"></div>
+        <p><button onclick="create_one()">Create</button>
+        <input id="name1" type="text" placeholder="isin code">
+        <input id="name2" type="text" placeholder="issue date">
+        <input id="name3" type="text" placeholder="maturity date">
+        <input id="name4" type="text" placeholder="coupon rate">
+        <input id="name5" type="text" placeholder="denomination"></p>
         <p><button onclick="update_one(all)">Update</button>
-        <input id="name" type="text" placeholder="isin code">
-        <input id="name" type="text" placeholder="issue date">
-        <input id="name" type="text" placeholder="maturity date">
-        <input id="name" type="text" placeholder="coupon rate">
-        <input id="name" type="text" placeholder="denomination"></p>
-        <p><button onclick="delete_one(all)">Delete</button>
-        <input id="name" type="text" placeholder="isin code"></p>  
+        <input id="name6" type="text" placeholder="isin code">
+        <input id="name7" type="text" placeholder="issue date">
+        <input id="name8" type="text" placeholder="maturity date">
+        <input id="name9" type="text" placeholder="coupon rate">
+        <input id="name10" type="text" placeholder="denomination"></p>
+        <p><button onclick="delete_one()">Delete</button>
+        <input id="name11" type="text" placeholder="isin code"></p>  
                 
     <script>
         function select_all(){
@@ -44,24 +44,34 @@
                 });
             }
             function select_one(){
+                var isin_code = document.getElementById("name").value;
                 $.ajax({
-                    "url":"/isins/<isin_code>",
+                    "url":"/isins/" + isin_code,
                     "method":"GET",
                     "data":"",
                     "dataType":"JSON",
                     "success":function(result){
-                        console.log(result);
-                    },
+                        document.getElementById("output2").innerHTML = result;
+                        },
                     "error":function(xhr,status,error){
                         console.log("status:"+status+" message:"+error);
                     }
                 });
             }
             function create_one(){
+                var isin_code = document.getElementById("name1").value;
+                var issue_date = document.getElementById("name2").value;
+                var maturity_date = document.getElementById("name3").value;
+                var coupon_rate = document.getElementById("name4").value;
+                var denomination = document.getElementById("name5").value;
                 $.ajax({
                     "url":"/isins",
                     "method":"POST",
-                    "data":"",
+                    "data":{"isin_code":isin_code,
+                            "issuance_date": issue_date,
+                            "maturity_date": maturity_date,
+                            "coupon_rate": coupon_rate,
+                            "denomination": denomination},
                     "dataType":"JSON",
                     "success":function(result){
                         console.log(result);
@@ -86,9 +96,10 @@
                 });
             }
             function delete_one(){
+                var isin_code2 = document.getElementById("name11").value;
                 $.ajax({
-                    "url":"/isins/<isin_code>",
-                    "method":"POST",
+                    "url":"/isins/" + isin_code2,
+                    "method":"DELETE",
                     "data":"",
                     "dataType":"JSON",
                     "success":function(result){
