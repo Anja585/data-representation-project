@@ -21,7 +21,7 @@
         <input id="name4" type="text" placeholder="coupon rate">
         <input id="name5" type="text" placeholder="denomination">
         </p>
-        <p><button onclick="update_one(all)">Update</button>
+        <p><button onclick="update_one()">Update</button>
         <input id="name6" type="text" placeholder="isin code">
         <input id="name7" type="text" placeholder="issue date">
         <input id="name8" type="text" placeholder="maturity date">
@@ -84,10 +84,19 @@
                 });
             }
             function update_one(){
+                var isin_code = document.getElementById("name6").value;
+                var issue_date = document.getElementById("name7").value;
+                var maturity_date = document.getElementById("name8").value;
+                var coupon_rate = document.getElementById("name9").value;
+                var denomination = document.getElementById("name10").value;
                 $.ajax({
-                    "url":"/isins/<isin_code>",
-                    "method":"POST",
-                    "data":"",
+                    "url":"/isins/" + isin_code,
+                    "method":"PUT",
+                    "data":{"isin_code":isin_code,
+                            "issuance_date": issue_date,
+                            "maturity_date": maturity_date,
+                            "coupon_rate": coupon_rate,
+                            "denomination": denomination},
                     "dataType":"JSON",
                     "success":function(result){
                         console.log(result);
