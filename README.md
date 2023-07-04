@@ -14,3 +14,4 @@
 7. Contributors, M. O. J. T. a. B. (n.d.). Bootstrap. https://getbootstrap.com/
 8. Sebhastian, N. (2021). JavaScript programmatically create an HTML button. Sebhastian. https://sebhastian.com/javascript-create-button/?utm_content=cmp-true
 9. Get Form Input value to jQuery AJAX call URL variable. (n.d.). Stack Overflow. https://stackoverflow.com/questions/58597048/get-form-input-value-to-jquery-ajax-call-url-variable
+10. Passing data from html into mysql database using flask and Ajax. (n.d.). Stack Overflow. https://stackoverflow.com/questions/53686679/passing-data-from-html-into-mysql-database-using-flask-and-ajax
