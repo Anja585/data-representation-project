@@ -52,22 +52,23 @@ def update_isin(isin_code):
     found_isin = isinDAO.find_isin(isin_code)
     if not found_isin:
           abort(404)
-    if not request.json:
+    if not request.form:
          abort(404)
-    req_json = request.json
-    if "coupon_rate" in request.json and type(req_json['coupon_rate']) is not int:
+    if "coupon_rate" in request.form and type(request.form["coupon_rate"]) is not int:
           abort(400)
-    if "issuance_date" in req_json:
-          found_isin["issuance_date"] = req_json["issuance_date"]
-    if "maturity_date" in request.json:
-          found_isin["maturity_date"] = req_json["maturity_date"]
-    if "denomination" in request.json:
-          found_isin["denomination"] = req_json["denomination"]      
-    values = (found_isin['isin_code'],
-              found_isin['issuance_date'],
-              found_isin['maturity_date'],
-              found_isin['coupon_rate'],
-              found_isin['denomination'])
+    if "issuance_date" in request.form:
+          found_isin[0][1] = request.form["issuance_date"]
+    if "maturity_date" in request.form:
+          found_isin[0][2] = request.form["maturity_date"]
+    if "denomination" in request.form:
+          found_isin[0][4] = request.form["denomination"]
+    if "coupon_rate" in request.form:
+          found_isin[0][3] = request.form["coupon_rate"]                  
+    values = (found_isin[0][0],
+              found_isin[0][1],
+              found_isin[0][2],
+              found_isin[0][3],
+              found_isin[0][4])
     isinDAO.update(values)
     return jsonify(found_isin)
 
