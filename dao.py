@@ -67,11 +67,11 @@ class isinDAO:
     # updates isin
     def update(self, values):
         cursor = self.get_cursor()
-        sql = '''update ea_assets set isin_code = %s, 
-                                      issuance_date = %s, 
+        sql = '''update ea_assets set issuance_date = %s, 
                                       maturity_date = %s, 
                                       coupon_rate = %s, 
-                                      denomination = %s;
+                                      denomination = %s
+                                      where isin_code = %s ;
                                       '''
         cursor.execute(sql, values)
         self.connection.commit()
@@ -87,6 +87,7 @@ class isinDAO:
         self.close_all()
 
 isinDAO = isinDAO()
+
 
 
 
