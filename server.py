@@ -29,14 +29,14 @@ def get_isin(isin_code):
 # create isin
 @app.route('/isins', methods = ['POST'])
 def create_isin(): 
-    if not request.json: 
+    if not request.form: 
           abort(400)
     new_isin = {
-          "isin_code" : request.json["isin_code"], 
-          "issuance_date" : request.json["issuance_date"],
-          "maturity_date" : request.json["maturity_date"],
-          "coupon_rate" : request.json["coupon_rate"],
-          "denomination" : request.json["denomination"]
+          "isin_code" : request.form["isin_code"], 
+          "issuance_date" : request.form["issuance_date"],
+          "maturity_date" : request.form["maturity_date"],
+          "coupon_rate" : request.form["coupon_rate"],
+          "denomination" : request.form["denomination"]
            }
     values = (new_isin['isin_code'], 
               new_isin['issuance_date'],
