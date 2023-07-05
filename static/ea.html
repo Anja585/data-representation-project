@@ -19,8 +19,7 @@
         <input id="name2" type="text" placeholder="issue date">
         <input id="name3" type="text" placeholder="maturity date">
         <input id="name4" type="text" placeholder="coupon rate">
-        <input id="name5" type="text" placeholder="denomination">
-        </p>
+        <input id="name5" type="text" placeholder="denomination"></p>
         <p><button onclick="update_one()">Update</button>
         <input id="name6" type="text" placeholder="isin code">
         <input id="name7" type="text" placeholder="issue date">
@@ -76,6 +75,7 @@
                             "denomination": denomination},
                     "dataType":"JSON",
                     "success":function(result){
+                        alert('done')
                         console.log(result);
                     },
                     "error":function(xhr,status,error){
@@ -114,6 +114,7 @@
                     "data":"",
                     "dataType":"JSON",
                     "success":function(result){
+                        alert('done')
                         console.log(result);
                     },
                     "error":function(xhr,status,error){
