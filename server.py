@@ -13,9 +13,9 @@ def hello():
     return 'hello'
 
 # get all
-@app.route('/isins', methods = ['GET'])
+@app.route('/all_isins.html', methods = ['GET'])
 def get_all_isins():
-    results = isinDAO.get_all()     
+    results = isinDAO.get_all()
     return jsonify(results)
 
 # get isin
