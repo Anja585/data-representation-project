@@ -7,9 +7,9 @@ This repository contains the work done as a project for the Data Representation 
 The website provides a simple interface to query, create, update and delete assets eligible for collateral mobilisations.  
 
 Use the following formats for create/update:
-*date: dd/mm/yyyy
-*coupon rate: numbers, can be rounded and/or decimals
-*denomination: three letter currency acronyms in capital letters e.g. EUR/USD/YEN
+- date: dd/mm/yyyy
+- coupon rate: numbers, can be rounded and/or decimals
+- denomination: three letter currency acronyms in capital letters e.g. EUR/USD/YEN
 
 
 ![Alt text](image.png)
