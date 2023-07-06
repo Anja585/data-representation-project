@@ -2,9 +2,20 @@
 ## Project for the Data Representation module 2023
 ## Anja Antolkovic
 
+This repository contains the work done as a project for the Data Representation module as part of the HDip in Data Analytics, ATU. The aim of the project was to demonstrate the understanding how to create and consume RESTful APIs. 
 
+![Alt text](image.png)
 
-# References
+## How to run the project
+1. Clone this repository
+2. Install the libraries from requirements.txt
+3. Run create_database.py
+4. Run create_table.py
+5. Run insert_database.py
+6. Run server.py
+7. Open your browser and run http://127.0.0.1:5000/
+
+## References
 1. European Central Bank. (2023, January 2). Download eligible assets datasets. https://www.ecb.europa.eu/paym/coll/assets/html/list-MID.en.html
 2. Great Learning Team. (2022, October 21). Everything you need to know about Flask for beginners. - Great Learning. Great Learning Blog: Free Resources What Matters to Shape Your Career! https://www.mygreatlearning.com/blog/everything-you-need-to-know-about-flask-for-beginners/
 3. Welcome to Flask — Flask Documentation (2.3.x). (n.d.). https://flask.palletsprojects.com/en/2.3.x/
