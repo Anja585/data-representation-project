@@ -4,6 +4,14 @@
 
 This repository contains the work done as a project for the Data Representation module as part of the HDip in Data Analytics, ATU. The aim of the project was to demonstrate the understanding how to create and consume RESTful APIs. 
 
+The website provides a simple interface to query, create, update and delete assets eligible for collateral mobilisations.  
+
+Use the following formats for create/update:
+*date: dd/mm/yyyy
+*coupon rate: numbers, can be rounded and/or decimals
+*denomination: three letter currency acronyms in capital letters e.g. EUR/USD/YEN
+
+
 ![Alt text](image.png)
 
 ## How to run the project
