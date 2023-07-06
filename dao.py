@@ -47,7 +47,7 @@ class isinDAO:
     # retrieves all isins
     def get_all(self):
         cursor = self.get_cursor()
-        sql = 'select * from ea_assets limit 10'
+        sql = 'select * from ea_assets'
         cursor.execute(sql)
         result = cursor.fetchall()
         print(type(result))
