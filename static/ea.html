@@ -8,7 +8,9 @@
 <body>
     <h4>Eligible assets</h4>
     <h6>Click the action to perform</h6>
-        <p><button onclick="select_all()"">All isins</button></p>
+        <form action="all_isins.html">
+        <p><button onclick="select_all()">All isins</button></p>
+        </form>
         <div id="output"></div>
         <p><button onclick="select_one()">Isin code</button>
         <input id="name" type="text" placeholder="isin code"></p>
@@ -30,7 +32,7 @@
         <input id="name11" type="text" placeholder="isin code"></p>  
                 
     <script>
-        function select_all(){
+        function select_all(){            
                 $.ajax({
                     "url":"/isins",
                     "method":"GET",
