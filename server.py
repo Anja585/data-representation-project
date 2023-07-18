@@ -54,8 +54,6 @@ def update_isin(isin_code):
           abort(404)
     if not request.form:
          abort(404)
-#     if "coupon_rate" in request.form and type(request.form["coupon_rate"]) is not int:
-#           abort(400)
     if "issuance_date" in request.form:
           found_isin[1] = request.form["issuance_date"]
     if "maturity_date" in request.form:
