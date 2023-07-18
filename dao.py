@@ -1,4 +1,5 @@
 import mysql.connector
+import dbconfig as cfg
 
 class isinDAO:
     host = "",
@@ -10,10 +11,10 @@ class isinDAO:
 
     def __init__(self):
         # these should be read from a config file 
-        self.host = 'localhost'
-        self.user = 'root'
-        self.password = ''
-        self.database = 'collateral'
+        self.host = cfg.mysql['host'] 
+        self.user = cfg.mysql['host'] 
+        self.password = cfg.mysql['host'] 
+        self.database = cfg.mysql['host'] 
     
     # connection
     def get_cursor(self):
