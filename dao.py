@@ -2,13 +2,6 @@ import mysql.connector
 import dbconfig as cfg
 
 class isinDAO:
-    host = "",
-    user = "",
-    password = "",
-    database = ""
-    connection = ""
-    cursor = ""
-
     def __init__(self):
         # these should be read from a config file 
         self.host = cfg.mysql['host'] 

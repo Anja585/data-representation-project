@@ -9,7 +9,7 @@
     <h4>Eligible assets</h4>
     <h6>Click the action to perform</h6>
         <form action='/isins'>
-        <p><button method="GET" onclick="select_all()">All isins</button></p>
+        <p><button method="GET">All isins</button></p>
         </form>
         <div id="output"></div>
         <p><button onclick="select_one()">Isin code</button>
@@ -32,20 +32,6 @@
         <input id="name11" type="text" placeholder="isin code"></p>  
                 
     <script>
-        function select_all(){            
-                $.ajax({
-                    "url":"/isins",
-                    "method":"GET",
-                    "data":"",
-                    "dataType":"JSON",
-                    "success":function(result){
-                        document.getElementById("output").innerHTML = result;
-                        },
-                    "error":function(xhr,status,error){
-                        console.log("status:"+status+" message:"+error);
-                    }
-                });
-            }
             function select_one(){
                 var isin_code = document.getElementById("name").value;
                 $.ajax({
