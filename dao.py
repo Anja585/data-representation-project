@@ -12,9 +12,9 @@ class isinDAO:
     def __init__(self):
         # these should be read from a config file 
         self.host = cfg.mysql['host'] 
-        self.user = cfg.mysql['host'] 
-        self.password = cfg.mysql['host'] 
-        self.database = cfg.mysql['host'] 
+        self.user = cfg.mysql['user'] 
+        self.password = cfg.mysql['password'] 
+        self.database = cfg.mysql['database'] 
     
     # connection
     def get_cursor(self):
