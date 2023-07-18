@@ -11,6 +11,7 @@ Use the following formats for create/update:
 - coupon rate: numbers, can be rounded and/or decimals
 - denomination: three letter currency acronyms in capital letters e.g. EUR/USD/YEN
 
+'All isins' retrive all assets aligible for collateral mobilisation in a list format. 
 
 Figure 1: Home page
 ![Alt text](image.png)
