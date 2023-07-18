@@ -2,18 +2,18 @@
 # Author: Anja Antolkovic
 
 
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, render_template
 from dao import isinDAO
 
 
-app = Flask(__name__, static_url_path='', static_folder='static')
+app = Flask(__name__, static_url_path='', static_folder='static', template_folder="static")
 
 @app.route('/')
 def hello(): 
-    return 'hello'
+    return render_template('/ea.html')
 
 # get all
-@app.route('/all_isins.html', methods = ['GET'])
+@app.route('/isins', methods = ['GET'])
 def get_all_isins():
     results = isinDAO.get_all()
     return jsonify(results)
@@ -77,6 +77,7 @@ def update_isin(isin_code):
 def delete_isin(isin_code): 
     isinDAO.delete(isin_code)
     return jsonify({"done": True})
+
 
 if __name__ == '__main__':
    app.run(debug=True)
