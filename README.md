@@ -18,11 +18,13 @@ Figure 1: Home page
 ## How to run the project
 1. Clone this repository
 2. Install the libraries from requirements.txt
-3. Run create_database.py
-4. Run create_table.py
-5. Run insert_database.py
-6. Run server.py
-7. Open your browser and run http://127.0.0.1:5000/
+3. Make sure to have MySql server installed and running on you machine
+4. Replace the current mySQL details present in dbconfig.py with your own ones 
+5. Run create_database.py
+6. Run create_table.py
+7. Run insert_database.py
+8. Run server.py
+9. Open your browser and run http://127.0.0.1:5000/
 
 ## References
 1. European Central Bank. (2023, January 2). Download eligible assets datasets. https://www.ecb.europa.eu/paym/coll/assets/html/list-MID.en.html
