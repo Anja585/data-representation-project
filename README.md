@@ -11,7 +11,7 @@ Use the following formats for create/update:
 - coupon rate: numbers, can be rounded and/or decimals
 - denomination: three letter currency acronyms in capital letters e.g. EUR/USD/YEN
 
-'All isins' retrive all assets aligible for collateral mobilisation in a list format. 
+'All isins' retrive all assets aligible for collateral mobilisation in a list format. Isin (International Securities Identification Number) is a 12-digit identifier alphanumeric code that uniquely identifies a specific security.
 
 Figure 1: Home page
 ![Alt text](image.png)
