@@ -17,6 +17,10 @@ Figure 1: Home page
 ![Alt text](image.png)
 
 ## How to run the project
+### pythonanywhere
+http://anja585.pythonanywhere.com/
+
+### Locally
 1. Clone this repository
 2. Install the libraries from requirements.txt
 3. Make sure to have MySql server installed and running on you machine
